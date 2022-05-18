@@ -1,0 +1,27 @@
+Oldies Cup:
+
+2018:
+
+select concat(player.forename, ' ', player.surname) as 'Player 1', concat(subquery.forename, ' ', subquery.surname) as 'Player 2', concat(subquery.p1_games_won, ' - ', subquery.p2_games_won) as 'Score', subquery.date_played as 'Date Played', subquery.court_number as 'Court Number', subquery.venue_name as 'Venue Name' from player right join (select played_match.p1_email, player.forename, player.surname, played_match.p1_games_won, played_match.p2_games_won, played_match.date_played, played_match.court_number, played_match.venue_name from player right join played_match on player.email=played_match.p2_email where played_match.p1_games_won>=0 and played_match.league_name='Oldies Cup' and year(played_match.date_played)=2018 order by played_match.date_played) as subquery on player.email=subquery.p1_email;
+
+2019:
+
+select concat(player.forename, ' ', player.surname) as 'Player 1', concat(subquery.forename, ' ', subquery.surname) as 'Player 2', concat(subquery.p1_games_won, ' - ', subquery.p2_games_won) as 'Score', subquery.date_played as 'Date Played', subquery.court_number as 'Court Number', subquery.venue_name as 'Venue Name' from player right join (select played_match.p1_email, player.forename, player.surname, played_match.p1_games_won, played_match.p2_games_won, played_match.date_played, played_match.court_number, played_match.venue_name from player right join played_match on player.email=played_match.p2_email where played_match.p1_games_won>=0 and played_match.league_name='Oldies Cup' and year(played_match.date_played)=2019 order by played_match.date_played) as subquery on player.email=subquery.p1_email;
+
+2020:
+
+select concat(player.forename, ' ', player.surname) as 'Player 1', concat(subquery.forename, ' ', subquery.surname) as 'Player 2', concat(subquery.p1_games_won, ' - ', subquery.p2_games_won) as 'Score', subquery.date_played as 'Date Played', subquery.court_number as 'Court Number', subquery.venue_name as 'Venue Name' from player right join (select played_match.p1_email, player.forename, player.surname, played_match.p1_games_won, played_match.p2_games_won, played_match.date_played, played_match.court_number, played_match.venue_name from player right join played_match on player.email=played_match.p2_email where played_match.p1_games_won>=0 and played_match.league_name='Oldies Cup' and year(played_match.date_played)=2020 order by played_match.date_played) as subquery on player.email=subquery.p1_email;
+
+Alexander McLintoch Trophy:
+
+2018:
+
+select concat(player.forename, ' ', player.surname) as 'Player 1', concat(subquery.forename, ' ', subquery.surname) as 'Player 2', concat(subquery.p1_games_won, ' - ', subquery.p2_games_won) as 'Score', subquery.date_played as 'Date Played', subquery.court_number as 'Court Number', subquery.venue_name as 'Venue Name' from player right join (select played_match.p1_email, player.forename, player.surname, played_match.p1_games_won, played_match.p2_games_won, played_match.date_played, played_match.court_number, played_match.venue_name from player right join played_match on player.email=played_match.p2_email where played_match.p1_games_won>=0 and played_match.league_name='Alexander McLintoch Trophy' and year(played_match.date_played)=2018 order by played_match.date_played) as subquery on player.email=subquery.p1_email;
+
+2019:
+
+select concat(player.forename, ' ', player.surname) as 'Player 1', concat(subquery.forename, ' ', subquery.surname) as 'Player 2', concat(subquery.p1_games_won, ' - ', subquery.p2_games_won) as 'Score', subquery.date_played as 'Date Played', subquery.court_number as 'Court Number', subquery.venue_name as 'Venue Name' from player right join (select played_match.p1_email, player.forename, player.surname, played_match.p1_games_won, played_match.p2_games_won, played_match.date_played, played_match.court_number, played_match.venue_name from player right join played_match on player.email=played_match.p2_email where played_match.p1_games_won>=0 and played_match.league_name='Alexander McLintoch Trophy' and year(played_match.date_played)=2019 order by played_match.date_played) as subquery on player.email=subquery.p1_email;
+
+2020:
+
+select concat(player.forename, ' ', player.surname) as 'Player 1', concat(subquery.forename, ' ', subquery.surname) as 'Player 2', concat(subquery.p1_games_won, ' - ', subquery.p2_games_won) as 'Score', subquery.date_played as 'Date Played', subquery.court_number as 'Court Number', subquery.venue_name as 'Venue Name' from player right join (select played_match.p1_email, player.forename, player.surname, played_match.p1_games_won, played_match.p2_games_won, played_match.date_played, played_match.court_number, played_match.venue_name from player right join played_match on player.email=played_match.p2_email where played_match.p1_games_won>=0 and played_match.league_name='Alexander McLintoch Trophy' and year(played_match.date_played)=2020 order by played_match.date_played) as subquery on player.email=subquery.p1_email;

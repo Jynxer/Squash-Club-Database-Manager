@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A web-interface for no-SQL interaction with a MariaDB database.">
+    <meta name="author" content="Jordan Rowley">
+
+    <title>MySquash</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles -->
+    <link href="../style/styles.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 href="/" class="masthead-brand">MySquash</h3>
+              <nav>
+                <ul class="nav masthead-nav">
+                  <li><a href="/">Home</a></li>
+                  <li class="active"><a href="/showLeaguesPage">Leagues</a></li>
+                  <li><a href="/newMatchPage">New Match</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+
+          <div class="inner cover">
+            <h1 class="cover-heading">Oldies Cup - 2020</h1>
+            
+            <div class="table_container">
+              <table id="results_table" style="text-align:center" align="center">
+                <tr>
+                  <th>Player 1</th>
+                  <th>Player 2</th>
+                  <th>Score</th>
+                  <th>Date Played</th>
+                  <th>Court Number</th>
+                  <th>Venue Name</th>
+                </tr>
+              </table>
+            </div>
+
+            <script>
+              function addRow(playerOne, playerTwo, score, datePlayed, courtNumber, venueName) {
+                var table = document.getElementById("results_table");
+                var row = table.insertRow(-1);
+                var cellOne = row.insertCell(-1);
+                var cellTwo = row.insertCell(-1);
+                var cellThree = row.insertCell(-1);
+                var cellFour = row.insertCell(-1);
+                var cellFive = row.insertCell(-1);
+                var cellSix = row.insertCell(-1);
+                cellOne.innerHTML = playerOne;
+                cellTwo.innerHTML = playerTwo;
+                cellThree.innerHTML = score;
+                cellFour.innerHTML = datePlayed;
+                cellFive.innerHTML = courtNumber;
+                cellSix.innerHTML = venueName;
+                console.log("Row added.");
+              }
+
+              async function getData() {
+                const response = await fetch('/oldiesCup2020Data');
+                const dataJSON = await response.text();
+                const data = JSON.parse(dataJSON);
+                for (var i = 0; i < data[0].length; i++) {
+                  if ((data[0][i] == 'undefined') || (data[1][i] == undefined) || (data[2][i] == "undefined") || (data[3][i] == 'undefined') || (data[4][i] == 'undefined') || (data[5][i] == 'undefined')) {
+                    continue;
+                  } else {
+                    addRow(data[0][i], data[1][i], data[2][i], data[3][i], data[4][i], data[5][i]);
+                  }
+                }
+              }
+
+              getData();
+            </script>
+
+            <p>
+                <a href="/oldiesCupPage" class="btn btn-lg btn-default">Back</a>
+            </p>
+          </div>
+
+          <div class="mastfoot">
+            <div class="inner">
+              <p>Squash Database Interface, by <a href="https://i.guim.co.uk/img/media/02088fb2247b13df646907d47f552dc69a236bc7/0_748_3235_1940/master/3235.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=172ccbaa7535c9e16d0455138d20a07c">190004947</a>.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    
+  </body>
+</html>
